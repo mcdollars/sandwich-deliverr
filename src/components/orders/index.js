@@ -1,12 +1,13 @@
 import Order from './single';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import orderActions from './../../redux/orders/actions';
+import inventoryActions from './../../redux/inventories/actions';
 
 import './index.css';
 
-const Orders = (props) => {
-    const { orders } = props;
+const Orders = () => {
+    const orders = useSelector(state => state.orders);
     const dispatch = useDispatch();
 
     const total = () => {
@@ -15,6 +16,7 @@ const Orders = (props) => {
     }
 
     const cancelOrder = (orderIndex) => {
+        dispatch({ type: inventoryActions.ADD_INVENTORIES, inventories: orders[orderIndex].ingredients });
         dispatch({ type: orderActions.CANCEL_ORDER, orderIndex });
     }
 

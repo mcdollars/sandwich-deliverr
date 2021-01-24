@@ -1,11 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import sandwichActions from './../../redux/sandwiches/actions';
 
 import Sandwich from './single';
 import './index.css';
 
-const Sandwiches = (props) => {
-    const { sandwiches } = props;
+const Sandwiches = () => {
+    const sandwiches = useSelector(state => state.sandwiches.all);
     const dispatch = useDispatch();
 
     const onChooseSandwich = (sandwich) => {

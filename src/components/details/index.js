@@ -1,10 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import orderActions from './../../redux/orders/actions';
+import inventoryActions from './../../redux/inventories/actions';
 
 import './index.css';
 
-const Details = (props) => {
-    const { sandwich, inventories } = props;
+const Details = () => {
+    const sandwich = useSelector(state => state.sandwiches.choose);
+    const inventories = useSelector(state => state.inventories);
+
     const dispatch = useDispatch();
 
     const style = {
@@ -12,7 +15,7 @@ const Details = (props) => {
     }
 
     const isAvailable = () => {
-        for (let key in Object.keys(sandwich.ingredients)) {
+        for (let key of Object.keys(sandwich.ingredients)) {
             if (inventories[key] < sandwich.ingredients[key]) {
                 return false;
             }
@@ -22,7 +25,10 @@ const Details = (props) => {
     }
 
     const addOrder = () => {
-        isAvailable() && dispatch({ type: orderActions.ADD_ORDER, newOrder: sandwich });
+        if (isAvailable()) {
+            dispatch({ type: inventoryActions.REMOVE_INVENTORIES, inventories: sandwich.ingredients });
+            dispatch({ type: orderActions.ADD_ORDER, newOrder: sandwich });
+        }
     }
 
     return sandwich ? (
