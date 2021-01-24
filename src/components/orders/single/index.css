@@ -1,0 +1,38 @@
+.order {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 55px auto 90px;
+  align-items: center;
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.order-thumbnail {
+  border-radius: 0.25rem;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  width: 50px;
+  height: 50px;
+}
+
+.order-detail {
+  padding: 0.25rem;
+}
+
+.order-detail p {
+  margin: 0.5rem 0;
+}
+
+.order-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

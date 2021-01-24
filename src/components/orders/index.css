@@ -1,0 +1,15 @@
+.orders {
+  /* border-left: 1px solid gray; */
+  margin-right: 2rem;
+  min-width: 300px;
+}
+
+.orders-title {
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid gray;
+
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
